@@ -28,33 +28,16 @@ def main():
 
         input_variables = pd.DataFrame([[city, Home, Away, toss_winner, toss_decision, venue]], columns=['city', 'Home', 'Away', 'toss_winner',
         'toss_decision', 'venue'], dtype=object)
+        
+        teams = ['Sunrisers Hyderabad', 'Mumbai Indians', 'Gujarat Lions', 'Rising Pune Supergiant', 'Royal Challengers Bangalore', 'Kolkata Knight Riders', 'Delhi Capitals', 'Kings XI Punjab', 'Chennai Super Kings', 'Rajasthan Royals', 'Deccan Chargers', 'Kochi Tuskers Kerala', 'Pune Warriors', 'Rising Pune Supergiants']
+        cities = ['Hyderabad', 'Pune', 'Rajkot', 'Indore', 'Bangalore', 'Mumbai', 'Kolkata', 'Delhi', 'Chandigarh', 'Kanpur', 'Jaipur', 'Chennai', 'Cape Town', 'Port Elizabeth', 'Durban', 'Centurion', 'East London', 'Johannesburg', 'Kimberley', 'Bloemfontein', 'Ahmedabad', 'Cuttack', 'Nagpur', 'Dharamsala', 'Kochi', 'Visakhapatnam', 'Raipur', 'Ranchi', 'Abu Dhabi', 'Sharjah']
 
-        input_variables.Home.replace(['Sunrisers Hyderabad', 'Mumbai Indians', 'Gujarat Lions',
-                      'Rising Pune Supergiant', 'Royal Challengers Bangalore',
-                      'Kolkata Knight Riders', 'Delhi Capitals', 'Kings XI Punjab',
-                      'Chennai Super Kings', 'Rajasthan Royals', 'Deccan Chargers',
-                      'Kochi Tuskers Kerala', 'Pune Warriors', 'Rising Pune Supergiants'],
-                      np.arange(0, 14), inplace=True)
-        input_variables.Away.replace(['Sunrisers Hyderabad', 'Mumbai Indians', 'Gujarat Lions',
-                      'Rising Pune Supergiant', 'Royal Challengers Bangalore',
-                      'Kolkata Knight Riders', 'Delhi Capitals', 'Kings XI Punjab',
-                      'Chennai Super Kings', 'Rajasthan Royals', 'Deccan Chargers',
-                      'Kochi Tuskers Kerala', 'Pune Warriors', 'Rising Pune Supergiants'],
-                      np.arange(0, 14), inplace=True)
+        input_variables.Home.replace(teams, np.arange(0, 14), inplace=True)
+        input_variables.Away.replace(teams, np.arange(0, 14), inplace=True)
         #input_variables['toss_winner'] = np.where(input_variables['toss_winner'] == 'Home Team', input_variables['Home'], input_variables['Away'])
-        input_variables.toss_winner.replace(['Sunrisers Hyderabad', 'Mumbai Indians', 'Gujarat Lions',
-                             'Rising Pune Supergiant', 'Royal Challengers Bangalore',
-                             'Kolkata Knight Riders', 'Delhi Capitals', 'Kings XI Punjab',
-                             'Chennai Super Kings', 'Rajasthan Royals', 'Deccan Chargers',
-                             'Kochi Tuskers Kerala', 'Pune Warriors', 'Rising Pune Supergiants'],
-                              np.arange(0, 14), inplace=True)
+        input_variables.toss_winner.replace(teams, np.arange(0, 14), inplace=True)
         input_variables.toss_decision.replace(['bat', 'field'], [0, 1], inplace=True)
-        input_variables.city.replace(['Hyderabad', 'Pune', 'Rajkot', 'Indore', 'Bangalore', 'Mumbai',
-        'Kolkata', 'Delhi', 'Chandigarh', 'Kanpur', 'Jaipur', 'Chennai',
-        'Cape Town', 'Port Elizabeth', 'Durban', 'Centurion',
-        'East London', 'Johannesburg', 'Kimberley', 'Bloemfontein',
-        'Ahmedabad', 'Cuttack', 'Nagpur', 'Dharamsala', 'Kochi',
-        'Visakhapatnam', 'Raipur', 'Ranchi', 'Abu Dhabi', 'Sharjah'],
+        input_variables.city.replace(cities,
         np.arange(0, 30), inplace=True)
         input_variables.venue.replace(['Rajiv Gandhi International Stadium, Uppal',
         'Maharashtra Cricket Association Stadium',
